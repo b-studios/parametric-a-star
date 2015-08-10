@@ -32,5 +32,31 @@ The common A* algorithm can be recovered, by instantiating `State = (Int, Int)` 
 in `valid`. Usually `bisimilar = equals` and `hash = hashCode`. However, also
 more complex equalities can be implemented like symmetry of rotations.
 
+## Installation
+This project is hosted on sonatype and synchronized to Maven Central. You can use sbt or maven to add parametrized A* to your dependencies.
+
+### SBT
+In `build.sbt`:
+~~~scala
+resolvers ++= Seq(
+  Resolver.sonatypeRepo("releases"),
+  Resolver.sonatypeRepo("snapshots")
+)
+
+libraryDependencies += "de.b-studios" %% "parametric-a-star" % "0.1"
+~~~
+
+### Maven
+In `pom.xml`:
+~~~xml
+<dependencies>
+    <dependency>
+      <groupId>de.b-studios</groupId>
+      <artifactId>parametric-a-star_2.10</artifactId>
+      <version>0.1</version>
+    </dependency>
+</dependencies>
+~~~
+
 ## Usage
-For example usages see either [this Scala file](https://github.com/b-studios/parametric-a-star/blob/master/src/test/scala/astar/AStarTest.scala) or [this Java file](https://github.com/b-studios/parametric-a-star/blob/master/src/test/java/astar/JAStarTest.java).
+For example usages see for instance [this Scala file](https://github.com/b-studios/parametric-a-star/blob/master/src/test/scala/astar/AStarTest.scala) or [this Java file](https://github.com/b-studios/parametric-a-star/blob/master/src/test/java/astar/JAStarTest.java).
