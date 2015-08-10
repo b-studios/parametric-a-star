@@ -1,6 +1,8 @@
 # Parametric A*
 A Scala / Java impementation of A* (A Star) parametric in the possible states and transitions. 
 
+[![Build Status](https://travis-ci.org/b-studios/parametric-a-star.svg?branch=master)](https://travis-ci.org/b-studios/parametric-a-star)
+
 Standard implementations of [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) are defined 
 on a 2D map with a fixed set of commands for navigation. In contrast, this implementation is
 fully parametric (unaware) of the used "map"-structure and "commands". To guide the search
