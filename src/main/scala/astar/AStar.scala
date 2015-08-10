@@ -1,6 +1,8 @@
 package astar
 
 import scala.collection.mutable
+import scala.language.implicitConversions
+
 
 // Design goals:
 // - parametric to adapt to many use cases
