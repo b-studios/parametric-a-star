@@ -3,43 +3,6 @@ package astar
 import scala.collection.mutable
 import scala.language.implicitConversions
 
-// Protocol:
-// ---------
-// s1 ~ s2  ==>  hash(s1) == hash(s2)
-// Usually one would define (~) = (==)
-//
-// It is assumed that invalid states are sinks
-trait Engine[State, Command] {
-
-  // State related
-  def valid(self: State): Boolean
-  def bisimilar(self: State, other: State): Boolean
-  def hash(self: State): Int
-  def transition(state: State, cmd: Command): State
-
-  // Available commands
-  def commands: List[Command]
-
-  // Heuristics
-  def distance(fst: State, other: State): Double
-}
-
-trait Domain[State, Command] {
-
-  // A strategy provided by the user of the library, implementing
-  // the domain logic of the application.
-  val engine: Engine[State, Command]
-
-  private[astar]
-  implicit class StateOps[S <% State](self: S) {
-    def valid: Boolean = engine.valid(self)
-    def ~(other: State): Boolean = engine.bisimilar(self, other)
-    def hash: Int = engine.hash(self)
-    def apply(cmd: Command): State = engine.transition(self, cmd)
-    def <>(other: State): Double = engine.distance(self, other)
-  }
-}
-
 // A parametric path finding algorithm based on
 // bisimilarity of states.
 case class AStar[State, Command](
@@ -138,4 +101,19 @@ case class StateSpace[State, Command](
   def update(s: State, n: Node) = nodes.update(new Key(s), n)
   def getOrElseSpawn(s: State): Node =
       nodes.getOrElseUpdate(new Key(s), Node(s))
+}
+
+private[astar] trait Domain[State, Command] {
+
+  // A strategy provided by the user of the library, implementing
+  // the domain logic of the application.
+  val engine: Engine[State, Command]
+
+  implicit class StateOps[S <% State](self: S) {
+    def valid: Boolean = engine.valid(self)
+    def ~(other: State): Boolean = engine.bisimilar(self, other)
+    def hash: Int = engine.hash(self)
+    def apply(cmd: Command): State = engine.transition(self, cmd)
+    def <>(other: State): Double = engine.distance(self, other)
+  }
 }
