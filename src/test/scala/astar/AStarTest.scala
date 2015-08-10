@@ -4,7 +4,6 @@ package test
 import org.scalatest._
 import org.scalatest.matchers._
 
-
 class AStarTest extends FunSpec with Matchers {
 
   // x, y, rotation (0, 1, 2, 3)
@@ -42,7 +41,7 @@ class AStarTest extends FunSpec with Matchers {
       case ((x, y, r), RotateRight)  => (x, y, (r + 1) % 4)
       case ((x, y, r), RotateLeft)   => (x, y, (r - 1) % 4)
     }
-    def commands: List[Command] = List(Left, Right, Up, Down, RotateLeft, RotateRight)
+    def commands = List(Left, Right, Up, Down, RotateLeft, RotateRight)
     def distance(fst: State, other: State): Double = heuristic(fst, other)
   }
 
