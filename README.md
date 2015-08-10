@@ -1,5 +1,5 @@
 # Parametric A*
-A Scala / Java impementation of A* (A Star), parametric in the possible states and transitions.
+A JVM (Scala / Java) implementation of A* (A Star), parametric in the possible states and transitions.
 
 [![Build Status](https://travis-ci.org/b-studios/parametric-a-star.svg?branch=master)](https://travis-ci.org/b-studios/parametric-a-star)
 
