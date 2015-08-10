@@ -3,11 +3,8 @@ package astar
 import scala.collection.mutable
 import scala.language.implicitConversions
 
-
-// Design goals:
-// - parametric to adapt to many use cases
-// - interface interoperable with Java
-
+// Protocol:
+// ---------
 // s1 ~ s2  ==>  hash(s1) == hash(s2)
 // Usually one would define (~) = (==)
 //
@@ -29,7 +26,8 @@ trait Engine[State, Command] {
 
 trait Domain[State, Command] {
 
-  // Typeclasses to be implemented by the user
+  // A strategy provided by the user of the library, implementing
+  // the domain logic of the application.
   val engine: Engine[State, Command]
 
   private[astar]
