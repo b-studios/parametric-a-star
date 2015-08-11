@@ -2,6 +2,7 @@
 A JVM (Scala / Java) implementation of A* (A Star), parametric in the possible states and transitions.
 
 [![Build Status](https://travis-ci.org/b-studios/parametric-a-star.svg?branch=master)](https://travis-ci.org/b-studios/parametric-a-star)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.b-studios/parametric-a-star_2.11/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.b-studios/parametric-a-star_2.11)
 
 Standard implementations of [A*](https://en.wikipedia.org/wiki/A*_search_algorithm) are defined
 on a 2D map with a fixed set of commands for navigation. In contrast, this implementation is
