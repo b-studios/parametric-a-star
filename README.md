@@ -53,7 +53,7 @@ In `pom.xml`:
 <dependencies>
     <dependency>
       <groupId>de.b-studios</groupId>
-      <artifactId>parametric-a-star_2.10</artifactId>
+      <artifactId>parametric-a-star_2.11</artifactId>
       <version>0.1</version>
     </dependency>
 </dependencies>
